@@ -11,6 +11,10 @@ namespace Combany.Data.Contexts
 {
     public class CompanyDbContext : DbContext
     {
+        public CompanyDbContext()
+        {
+            
+        }
         public CompanyDbContext(DbContextOptions<CompanyDbContext> options) : base(options)
         {
         }
