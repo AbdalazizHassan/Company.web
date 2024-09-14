@@ -1,3 +1,6 @@
+using Combany.Data.Contexts;
+using Microsoft.EntityFrameworkCore;
+
 namespace Company.web
 {
     public class Program
@@ -8,7 +11,10 @@ namespace Company.web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddDbContext<CompanyDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
