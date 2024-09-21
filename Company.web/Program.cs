@@ -30,6 +30,9 @@ namespace Company.web
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+            Console.WriteLine("Hello from Dev");
+
             app.Run();
         }
     }
