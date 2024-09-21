@@ -1,3 +1,8 @@
+using Combany.Data.Contexts;
+using Company.Repository.Interfaces;
+using Company.Repository.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 namespace Company.web
 {
     public class Program
@@ -8,6 +13,11 @@ namespace Company.web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<CompanyDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
+            builder.Services.AddScoped<IDepartmentRepoitory, DepartmentRepository>();
 
             var app = builder.Build();
 
@@ -31,7 +41,6 @@ namespace Company.web
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
-           
 
             app.Run();
         }
