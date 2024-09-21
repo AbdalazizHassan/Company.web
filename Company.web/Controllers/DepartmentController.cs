@@ -15,6 +15,9 @@ namespace Company.web.Controllers
         {
             var departments = _departmentRepoitory.GetAll();
             return View();
+            //var departments = _departmentRepoitory.GetAll(); // Replace with your logic
+            //ViewData["Model"] = departments; // Or ViewBag.Model = departments;
+            //return View();
         }
     }
 }
