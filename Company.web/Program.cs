@@ -1,4 +1,6 @@
 using Combany.Data.Contexts;
+using Company.Repository.Interfaces;
+using Company.Repository.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Company.web
@@ -15,6 +17,7 @@ namespace Company.web
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+            builder.Services.AddScoped<IDepartmentRepoitory, DepartmentRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

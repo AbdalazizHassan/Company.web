@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Company.Repository.Repositories
 {
-    public class DepartmentRepoitory : GenericRepository<Department> , IDepartmentRepoitory
+    public class DepartmentRepository : GenericRepository<Department> , IDepartmentRepoitory
     {
         private readonly CompanyDbContext _context;
 
-        public DepartmentRepoitory(CompanyDbContext context) : base(context)
+        public DepartmentRepository(CompanyDbContext context) : base(context)
         {
             _context = context;
         }
